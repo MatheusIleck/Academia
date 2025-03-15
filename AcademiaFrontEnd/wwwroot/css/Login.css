@@ -1,0 +1,115 @@
+﻿
+.bodyData {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-image: url("../imgs/fundo-login.png");
+    background-size: cover;
+}
+
+.sectionlogin {
+    height: 100vh;
+}
+.container-data {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height:100%;
+}
+
+.carddata.dados{
+    width:26%;
+}
+.carddata.texto h2{
+    font-size:50px;
+}
+.carddata.texto span {
+    font-size: 50px;
+}
+.container-data form input {
+    width: 100%;
+}
+
+.formlogin {
+    padding: 5%;
+    background: orange;
+    height: 100%;
+
+    border-radius: 80px;
+    -webkit-box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+}
+    .formlogin img {
+        height: 150px;
+        margin:1rem;
+    }
+.formlogin div {
+    padding: 1rem;
+    
+}
+.icon {
+    position: relative;
+    top: 5px;
+    font-size: 33px;
+}
+    .formlogin div input {
+        width: 80%;
+        background: none;
+        border: 0px;
+        border-bottom: 2px solid black;
+    }
+        .formlogin div input.confirmbutton {
+            border-bottom: 0px;
+            background: #fff;
+            border-radius: 36px;
+            padding: 15px;
+            width: 50%;
+            font-weight: 600;
+            font-size: 20PX;
+        }
+        .formlogin div input.confirmbutton:hover {
+            color: #fdaf10;
+            transition: 0.2s;
+        }
+            .formlogin div input:focus {
+                outline: none;
+            }
+
+
+
+input[type="date"] {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
+.singupbutton {
+    background: white;
+    display:block;
+    border: 0;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 49px 4px rgba(0,0,0,0.35);
+    padding: 1rem;
+    font-size: 20px;
+    margin:0.9rem;
+    width:50%;
+    place-self:center;
+    font-weight: 600;
+    text-decoration:none;
+    color:#000;
+    cursor:pointer;
+}
+
+    .singupbutton:hover {
+        background: #fdaf10;
+        color:#fff;
+        transition:0.2s;
+    }
+

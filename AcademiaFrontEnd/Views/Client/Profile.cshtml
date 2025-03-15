@@ -1,0 +1,324 @@
+﻿@{
+    Layout = "_ClientLayout";
+
+    var DaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+}
+
+
+<div class="min-h-screen flex flex-col">
+
+    <div class="w-full bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-44 relative flex items-center px-6">
+
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <span class="text-white font-bold text-4xl hover:text-[2.6rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Smart<span class="text-black">Fit</span>
+            </span>
+        </div>
+
+        <div class="hidden md:flex space-x-4 ml-auto">
+            <a asp-action="Logout" asp-controller="home" class="text-white font-bold px-3 py-2 rounded-md hover:text-[1.2rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Sair
+            </a>
+        </div>
+
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="flex w-full justify-center mb-10 lg:flex-row lg:space-x-6 mt-8 px-6 ">
+
+        <div class="flex flex-col w-full xl:w-4/12 lg:w-6/12 md:w-8/12 sm:w-9/12  space-y-6">
+
+            <div class="bg-white rounded-lg shadow-xl p-6 flex relative items-center">
+
+
+                <div class="relative">
+                    <img id="profile-image"
+                         src="https://localhost:7166/@Model.Data.imgperfil"
+                         alt="Profile"
+                         class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg hover:opacity-80 transition-opacity cursor-pointer">
+                </div>
+
+                <h1 class="text-lg font-bold mx-4">@Model.Data.Nome</h1>
+
+                <div class="relative">
+                    <i id="notification-icon" class="fa-solid fa-bell text-2xl text-gray-700 cursor-pointer"></i>
+
+                    @if (Model.Data.solicitacoes.Count > 0)
+                    {
+                        <span class="absolute -top-2 -right-2 text-xs bg-yellow-500 text-white font-bold px-2 py-1 rounded-full shadow-md cursor-pointer">
+                            @Model.Data.solicitacoes.Count
+                        </span>
+                    }
+
+                    <!-- Modal de Notificações -->
+                    <div id="notification-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                            <h2 class="text-lg font-semibold mb-4">Solicitações</h2>
+                            <ul class="mb-4">
+                                @foreach (var solicitacao in Model.Data.solicitacoes)
+                                {
+                                    <li class="border-b py-2 flex justify-between items-center">
+                                        <form action="ApproveRequest" method="post">
+                                            <span>@solicitacao.NomeProfessor solicitou ser seu orientador de treinos.</span>
+
+                                            <input type="hidden" name="idSolicitacao" value="@solicitacao.Id" />
+                                            <input type="hidden" name="idProfessor" value="@solicitacao.ProfessorId" />
+
+                                            <div class="flex space-x-2">
+                                                <button class="text-green-500 hover:text-green-700">Aceitar</button>
+                                                <button class="text-red-500 hover:text-red-700">Recusar</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                }
+                            </ul>
+                            <button id="close-notification-modal" class="mt-2 text-blue-500">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="upload-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <form asp-action="UploadImage" asp-controller="Home" enctype="multipart/form-data" method="post">
+
+                        <h2 class="text-xl font-semibold mb-4">Atualizar Foto de Perfil</h2>
+
+                        <div id="upload-area" class="w-full h-20 relative outline-2 outline-offset-2 outline-dashed place-content-center text-center cursor-pointer">
+                            <input type="file" id="input-file" name="image" class="absolute h-full w-full opacity-0 inset-0 cursor-pointer">
+                            <span class="text-gray-600">Enviar foto</span>
+                        </div>
+
+                        <img id="preview" class="w-32 h-32 object-cover rounded-full border mt-2 hidden justify-self-center" />
+
+                        <button id="change-image" type="button" class="text-blue-500 mt-2 hidden">Remover imagem</button>
+
+                        <div class="flex justify-between mt-4">
+                            <button type="button" id="cancel-btn" class="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
+                            <button type="submit" id="upload-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0 ">
+                <div class="bg-white rounded-lg shadow-xl p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/personalinfo.png" alt="Alternate Text" width="40" height="40" />
+
+                        <h2 class="text-lg font-semibold">Informação Pessoal</h2>
+                    </div>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex gap-1">
+                            <span>Idade:</span>
+                            <span class="font-semibold">@Model.Data.idade years</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Altura:</span>
+                            <span class="font-semibold">@Model.Data.Altura</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Peso: </span>
+                            <span class="font-semibold">@Model.Data.Peso kg</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>IMC: </span>
+                            <span class="font-semibold">@Model.Data.Imc.ToString("f1")</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 ">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/clipboardicon.png" alt="Alternate Text" width="40" height="40" />
+                        <h2 class="text-lg font-semibold">Estatisticas</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
+                        <div class="flex items-center space-x-3">
+                            @if (@Model.Data.WorkoutsSessions.Count < DaysInMonth / 2)
+                            {
+                                <div class="w-12 h-12 bg-yellow-100 text-white flex items-center justify-center rounded-full">
+                                    <i class="bi bi-activity text-2xl"></i>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="w-12 h-12 bg-green-600 text-white flex items-center justify-center rounded-full">
+                                    <i class="bi bi-activity text-2xl"></i>
+                                </div>
+                            }
+
+                            <div>
+                                <p class="text-sm text-gray-500"> <i class="fa-solid fa-calendar"></i> Treinos esse mês</p>
+                                <p class="font-semibold">@Model.Data.WorkoutsSessions.Count/@DaysInMonth</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-clock"></i> Horas totais</p>
+                                <p class="font-semibold">@Model.Data.Horastotais.TotalHours.ToString("f2")H</p>
+                            </div>
+
+
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+
+                                <p class="text-sm text-gray-500">  <i class="fa-solid fa-fire"></i>  Dias consecutivos </p>
+                                <p class="font-semibold">@Model.Data.ofensiva</p>
+                            </div>
+
+
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-heart"></i> Calorias totais</p>
+                                <p class="font-semibold">200</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/workouticon3.png" alt="Alternate Text" width="40" height="40" />
+                        <h2 class="text-lg font-semibold">Treinos</h2>
+
+                    </div>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div id="message" class="alert alert-warning">
+                            @TempData["Message"]
+                        </div>
+                    }
+                    @if (Model.Data.Workouts.Count == 0)
+                    {
+                        <div class="p-4 rounded-lg mt-4 grid ">
+
+                            <h3 class="text-lg font-bold text-center mb-2">Você não possui treinos</h3>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="px-2rounded-lg mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                            @foreach (var workout in @Model.Data.Workouts)
+                            {
+
+                                <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-yellow-400">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fa-solid fa-dumbbell text-yellow-600 text-xl"></i>
+                                    </div>
+
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2">@workout.Nome</h3>
+
+                                    <p class="text-sm text-gray-600 mb-4">@workout.Descricao</p>
+
+                                    <a class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 mt-auto" asp-action="StartWorkout" asp-route-id="@workout.Id">
+                                        Começar
+                                    </a>
+                                </div>
+
+                            }
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var message = document.getElementById("message");
+    if (message) {
+        setTimeout(function () {
+            message.style.display = "none";
+        }, 3000);
+    }
+    // Abrir o modal quando clicar na imagem
+    document.getElementById("profile-image").addEventListener("click", function () {
+        document.getElementById("upload-modal").classList.remove("hidden");
+    });
+
+    // Fechar o modal quando clicar em "Cancelar"
+    document.getElementById("cancel-btn").addEventListener("click", function () {
+        document.getElementById("upload-modal").classList.add("hidden");
+    });
+
+    // Exibir a imagem selecionada no preview e esconder o input file
+    document.getElementById("input-file").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("preview").src = e.target.result;
+                document.getElementById("preview").classList.remove("hidden");
+                document.getElementById("upload-area").classList.add("hidden"); // Esconder o input file
+                document.getElementById("change-image").classList.remove("hidden"); // Mostrar botão para trocar a imagem
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Permitir trocar a imagem (reexibir input file)
+    document.getElementById("change-image").addEventListener("click", function () {
+        document.getElementById("upload-area").classList.remove("hidden"); // Mostrar input file novamente
+        document.getElementById("preview").classList.add("hidden"); // Esconder prévia da imagem
+        this.classList.add("hidden"); // Esconder botão de troca
+    });
+
+    //Modal para abrir as notificações
+    document.addEventListener("DOMContentLoaded", function () {
+        const notificationIcon = document.getElementById("notification-icon");
+        const notificationCount = document.querySelector(".absolute.-top-2.-right-2");
+        const notificationModal = document.getElementById("notification-modal");
+        const closeNotificationModal = document.getElementById("close-notification-modal");
+
+        // Abrir o modal ao clicar no ícone de notificação ou no número de notificações
+        notificationIcon.addEventListener("click", function (event) {
+            event.stopPropagation();
+            notificationModal.classList.remove("hidden");
+        });
+
+        notificationCount.addEventListener("click", function (event) {
+            event.stopPropagation();
+            notificationModal.classList.remove("hidden");
+        });
+
+        // Fechar o modal ao clicar em "Fechar"
+        closeNotificationModal.addEventListener("click", function () {
+            notificationModal.classList.add("hidden");
+        });
+
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener("click", function (event) {
+            if (!notificationModal.contains(event.target) && event.target !== notificationIcon && event.target !== notificationCount) {
+                notificationModal.classList.add("hidden");
+            }
+        });
+    });
+
+</script>

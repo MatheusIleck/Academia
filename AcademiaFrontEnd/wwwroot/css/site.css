@@ -1,0 +1,22 @@
+@import "Login.css";
+@import "Profile.css";
+
+@media (max-width: 576px) {
+
+ 
+    .bg-mobile {
+        background-image: url('/imgs/banner-mobile.jpeg') !important;
+    }
+ 
+}
+
+/* Ajuste do tamanho das imagens */
+img {
+    max-height: 12rem; /* Altura máxima consistente */
+    object-fit: cover; /* Ajusta a imagem sem distorção */
+}
+
+/* Ajuste dos cards */
+card {
+    min-height: 28rem; /* Altura mínima para todos os cards */
+}

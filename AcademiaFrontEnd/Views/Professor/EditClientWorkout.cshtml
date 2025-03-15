@@ -1,0 +1,61 @@
+﻿@model WorkoutModel
+
+@{
+    Layout = "_ClientLayout";
+}
+
+<div class="min-h-screen flex flex-col">
+    <div class="relative bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-48">
+        <div class="absolute inset-0 flex items-center justify-center px-6 space-x-4 flex-col">
+            <div class="text-white">
+                <h1 class="text-2xl font-bold">Treino: @Model.Nome</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row lg:space-x-6 mt-8 px-6">
+        <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0">
+                <form asp-action="EditClientWorkout" method="post" class="mb-10">
+                    <input type="hidden" name="idusuario" value="@ViewBag.Idusuario" />
+                    <!-- ID do Treino -->
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <input type="hidden" asp-for="@Model.Nome" />
+                    <input type="hidden" asp-for="@Model.Descricao" />
+
+
+                    @for (int i = 0; i < Model.Exercicios.Count; i++)
+                    {
+                        <div class="bg-white  shadow p-6 justify-self-center w-4/6 text-center">
+                            <h2 class="text-lg font-semibold">@Model.Exercicios[i].Nome</h2>
+
+                            <!-- ID do Exercício -->
+                            <input type="hidden" asp-for="@Model.Exercicios[i].Id" />
+
+                            <!-- Nome do Exercício -->
+                            <input type="hidden" asp-for="@Model.Exercicios[i].Nome" />
+
+                            <!-- Sets -->
+                            <label asp-for="@Model.Exercicios[i].Sets">Sets:</label>
+                            <input type="number" asp-for="@Model.Exercicios[i].Sets" class="bg-gray-100 border rounded p-2 mb-2">
+
+                            <!-- Reps -->
+                            <label asp-for="@Model.Exercicios[i].Reps">Reps:</label>
+                            <input type="number" asp-for="@Model.Exercicios[i].Reps" class="bg-gray-100 border rounded p-2 mb-2">
+
+                            <!-- Carga -->
+                            <label asp-for="@Model.Exercicios[i].Carga">Carga:</label>
+                            <input type="text" asp-for="@Model.Exercicios[i].Carga" class="bg-gray-100 border rounded p-2 mb-2">
+                        </div>
+                    }
+
+                    <!-- Botão de Submissão -->
+                    <div class="mt-5 text-center">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-semibold">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</div>

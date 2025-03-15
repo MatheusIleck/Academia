@@ -1,0 +1,206 @@
+﻿@{
+    Layout = "_ClientLayout";
+
+    var DaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+}
+
+
+<div class="min-h-screen flex flex-col">
+
+    <div class="w-full bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-44 relative flex items-center px-6">
+
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <span class="text-white font-bold text-4xl hover:text-[2.6rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Smart<span class="text-black">Fit</span>
+            </span>
+        </div>
+
+        <div class="hidden md:flex space-x-4 ml-auto">
+            <a asp-action="profile" asp-controller="professor" class="text-white font-bold px-3 py-2 rounded-md hover:text-[1.2rem] transition-all duration-300 ease-in-out cursor-pointer">
+                voltar
+            </a>
+        </div>
+
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="flex w-full justify-center mb-10 lg:flex-row lg:space-x-6 mt-8 px-6 ">
+
+        <div class="flex flex-col w-full xl:w-4/12 lg:w-6/12 md:w-8/12 sm:w-9/12 space-y-6">
+
+
+            <div class="bg-white rounded-lg shadow p-6 flex items-center">
+                <img src="https://localhost:7166/@Model.Data.imgperfil"
+                     alt="Profile"
+                     class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg">
+                <div class="">
+                    <h1 class="text-lg font-bold mx-4">@Model.Data.Nome</h1>
+                </div>
+            </div>
+
+
+
+
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/personalinfo.png" alt="Alternate Text" width="40" height="40" />
+
+                        <h2 class="text-lg font-semibold">Informação Pessoal</h2>
+                    </div>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex gap-1">
+                            <span>Idade:</span>
+                            <span class="font-semibold">@Model.Data.idade years</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Altura:</span>
+                            <span class="font-semibold">@Model.Data.Altura</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Peso: </span>
+                            <span class="font-semibold">@Model.Data.Peso kg</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>IMC: </span>
+                            <span class="font-semibold">@Model.Data.Imc.ToString("f1")</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 ">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/clipboardicon.png" alt="Alternate Text" width="40" height="40" />
+                        <h2 class="text-lg font-semibold">Estatisticas</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
+                        <div class="flex items-center space-x-3">
+                            @if (@Model.Data.WorkoutsSessions.Count < DaysInMonth / 2)
+                            {
+                                <div class="w-12 h-12 bg-yellow-100 text-white flex items-center justify-center rounded-full">
+                                    <i class="bi bi-activity text-2xl"></i>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="w-12 h-12 bg-green-600 text-white flex items-center justify-center rounded-full">
+                                    <i class="bi bi-activity text-2xl"></i>
+                                </div>
+                            }
+
+                            <div>
+                                <p class="text-sm text-gray-500"> <i class="fa-solid fa-calendar"></i> Treinos esse mês</p>
+                                <p class="font-semibold">@Model.Data.WorkoutsSessions.Count/@DaysInMonth</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-clock"></i> Horas totais</p>
+                                <p class="font-semibold">@Model.Data.Horastotais.TotalHours.ToString("f2")H</p>
+                            </div>
+
+
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+
+                                <p class="text-sm text-gray-500">  <i class="fa-solid fa-fire"></i>  Dias consecutivos </p>
+                                <p class="font-semibold">0</p>
+                            </div>
+
+
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-yellow-200 text-yellow-500 flex items-center justify-center rounded-full">
+                                <i class="bi bi-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-heart"></i> Calorias totais</p>
+                                <p class="font-semibold">200</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/workouticon3.png" alt="Alternate Text" width="40" height="40" />
+                        <h2 class="text-lg font-semibold">Treinos</h2>
+                    </div>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div id="message" class="alert alert-warning">
+                            @TempData["Message"]
+                        </div>
+                    }
+
+                    @if (Model.Data.Workouts.Count == 0)
+                    {
+                        <div class="p-4 rounded-lg mt-4 ">
+
+                            <div class="p-4 rounded-lg mt-4 flex flex-col gap-1 justify-center">
+                                <a class="w-full p-5 text-center bg-yellow-300 rounded-lg hover:bg-yellow-400 font-bold transition-colors duration-200 shadow-md hover:shadow-lg" asp-action="CreateNewWorkout" asp-route-idusuario="@Model.Data.id">Criar novo treino</a>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="p-4 rounded-lg mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            @foreach (var workout in @Model.Data.Workouts)
+                            {
+                                <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-200 hover:border-yellow-400">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fa-solid fa-dumbbell text-yellow-600 text-xl"></i>
+                                    </div>
+
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2">@workout.Nome</h3>
+
+                                    <p class="text-sm text-gray-600 mb-4">@workout.Descricao</p>
+                                    <div class="flex gap-2 mt-auto">
+                                        <a class="bg-blue-500 p-3 text-white  text-center rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200" asp-route-idtreino="@workout.Id" asp-route-idusuario="@Model.Data.id" asp-action="EditClientWorkout">Editar</a>
+                                        <a class="bg-gray-600 p-3 text-white  text-center rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-200" asp-route-idtreino="@workout.Id" asp-route-idusuario="@Model.Data.id" asp-action="RemoveWorkout">Remover</a>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                        <div class="flex justify-center mt-6">
+                            <a class="p-4 w-full max-w-xs text-center bg-yellow-400 rounded-lg text-white font-bold
+       shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                               asp-action="CreateNewWorkout" asp-route-idusuario="@Model.Data.id">
+                                Criar Novo Treino
+                            </a>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var message = document.getElementById("message");
+    if (message) {
+        setTimeout(function () {
+            message.style.display = "none";
+        }, 3000);
+    }
+</script>

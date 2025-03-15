@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+    var limit = DateTime.Today.AddYears(-5).ToString("yyyy-MM-dd");
+}
+
+@using AcademiaFrontEnd.Request;
+@using AcademiaFrontEnd.Request.client;
+@model RegisterNewClientRequest;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="bg-cover bg-center" style="background-image: url('@Url.Content("~/imgs/fundo-login.png")');">
+    <section class="h-screen flex justify-center items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-11/12 max-w-4xl">
+
+            <!-- Formulário -->
+            <div class="bg-yellow-400 p-8 rounded-3xl shadow-lg w-full max-w-md mx-auto">
+                <div class="text-center mb-6">
+                    <a asp-action="index">
+
+                        <img src="~/imgs/logobranco.png" class="w-20 mx-auto" alt="Logo" />
+                    </a>
+                </div>
+                <form asp-action="Register" method="post" class="space-y-4">
+                    <input type="text" asp-for="Name" placeholder="Nome" class="w-full p-2 border rounded-lg" required />
+                    <span asp-validation-for="Name" class="text-black text-sm"></span>
+
+                    <input type="email" asp-for="Email" placeholder="Email" class="w-full p-2 border rounded-lg" required />
+                    <span asp-validation-for="Email" class="text-black text-sm"></span>
+
+                    <input type="password" asp-for="Password" placeholder="Senha" class="w-full p-2 border rounded-lg" required />
+                    <span asp-validation-for="Password" class="text-black text-sm"></span>
+
+                    <ul id="password-criteria" class="text-gray-600 text-sm list-disc pl-5 hidden">
+                        <li id="uppercase" class="text-red-600">A senha deve ter uma letra maiúscula.</li>
+                        <li id="lowercase" class="text-red-600">A senha deve ter uma letra minúscula.</li>
+                        <li id="number" class="text-red-600">A senha deve ter um número.</li>
+                        <li id="special" class="text-red-600">A senha deve ter um caractere especial.</li>
+                        <li id="length" class="text-red-600">A senha deve ter pelo menos 8 caracteres.</li>
+                    </ul>
+
+                    <input type="date" asp-for="Date" class="w-full p-2 border rounded-lg" required />
+                    <span asp-validation-for="Date" class="text-black text-sm"></span>
+
+                    <input type="number" asp-for="Weight" placeholder="Peso" class="w-full p-2 border rounded-lg" step="0.01" required />
+                    <span asp-validation-for="Weight" class="text-black text-sm"></span>
+
+                    <input type="number" asp-for="Height" placeholder="Altura" class="w-full p-2 border rounded-lg" step="0.01" required />
+                    <span asp-validation-for="Height" class="text-black text-sm"></span>
+
+                    <button type="submit" class="w-full bg-white text-black font-medium p-3 rounded-3xl cursor-pointer hover:bg-yellow-200 transition-all">
+                        Cadastrar
+                    </button>
+
+                </form>
+
+
+            </div>
+
+            <!-- Seção de Login -->
+            <div class="text-center flex flex-col justify-center items-center p-8">
+                <h2 class="text-xl font-bold">Já possui uma conta?</h2>
+                <p class="text-yellow-500 font-semibold">Entre para ver os seus treinos</p>
+                <a asp-action="Login" class="mt-4 bg-yellow-400 text-white font-medium px-6 py-2 rounded-lg shadow-md hover:bg-yellow-500 transition-all">
+                    Entrar
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const passwordInput = document.querySelector("input[name='Password']");
+        const passwordCriteria = document.getElementById("password-criteria");
+
+        const rules = {
+            uppercase: /[A-Z]/,
+            lowercase: /[a-z]/,
+            number: /\d/,
+            special: /[\W_]/,
+            length: /.{8,}/
+        };
+
+        passwordInput.addEventListener("input", function () {
+            passwordCriteria.classList.remove("hidden");
+
+            document.getElementById("uppercase").classList.toggle("text-black", rules.uppercase.test(this.value));
+            document.getElementById("uppercase").classList.toggle("text-red-600", !rules.uppercase.test(this.value));
+
+            document.getElementById("lowercase").classList.toggle("text-black", rules.lowercase.test(this.value));
+            document.getElementById("lowercase").classList.toggle("text-red-600", !rules.lowercase.test(this.value));
+
+            document.getElementById("number").classList.toggle("text-black", rules.number.test(this.value));
+            document.getElementById("number").classList.toggle("text-red-600", !rules.number.test(this.value));
+
+            document.getElementById("special").classList.toggle("text-black", rules.special.test(this.value));
+            document.getElementById("special").classList.toggle("text-red-600", !rules.special.test(this.value));
+
+            document.getElementById("length").classList.toggle("text-black", rules.length.test(this.value));
+            document.getElementById("length").classList.toggle("text-red-600", !rules.length.test(this.value));
+        });
+    });
+</script>

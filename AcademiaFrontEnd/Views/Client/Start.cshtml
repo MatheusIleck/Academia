@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "_ClientLayout";
+    var startTime = Model.Data.Inicio;
+
+}
+<div class="min-h-screen flex flex-col">
+    <div class="relative bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-48">
+        <div class="absolute inset-0 flex items-center justify-center px-6 space-x-4 flex-col">
+
+            <div class="text-white">
+                <h1 class="text-2xl font-bold">Treino</h1>
+            </div>
+            <div class="text-white">
+                <h1 class="text-2xl font-bold">Cronômetro: <span id="timer">00:00:00</span></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col lg:flex-row lg:space-x-6 mt-8 px-6 ">
+        <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0 ">
+                @foreach (var exercise in Model.Data.Treino.Exercicios)
+                {
+                    <div class="bg-white rounded-lg shadow p-6 justify-self-center w-4/6 text-center">
+                        <h2 class="text-lg font-semibold">@exercise.Nome</h2>
+                        <h3>Sets: @exercise.Sets</h3>
+                        <h3>Sets: @exercise.Reps</h3>
+                        <h3>Carga: @exercise.Carga</h3>
+                        <video width="320" height="500" controls class="justify-self-center my-5">
+                            <source src="https://localhost:7166/exercicios/@exercise.Video" type="video/mp4">
+
+                        </video>
+                    </div>
+
+                }
+
+
+            </div>
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0 justify-self-center w-max ">
+                <form method="post" asp-action="EndWorkout" asp-route-id="@Model.Data.Id">
+                    <button type="submit" class="bg-yellow-600 p-3 text-black w-96 block text-center hover:bg-yellow-700 mb-5 rounded-lg font-semibold">
+                        Finalizar
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const startTimeString = '@startTime'; // Passa a string diretamente do Razor
+    const [startHours, startMinutes, startSeconds] = startTimeString.split(':').map(Number);
+
+    // Converte o horário inicial em segundos totais
+    const startTotalSeconds = startHours * 3600 + startMinutes * 60 + startSeconds;
+
+    function updateTimer() {
+        const now = new Date();
+        const nowSeconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+        const elapsedSeconds = nowSeconds - startTotalSeconds;
+
+        // Calcula horas, minutos e segundos decorridos
+        const hours = String(Math.floor(elapsedSeconds / 3600)).padStart(2, '0');
+        const minutes = String(Math.floor((elapsedSeconds % 3600) / 60)).padStart(2, '0');
+        const seconds = String(elapsedSeconds % 60).padStart(2, '0');
+
+        // Atualiza o cronômetro no HTML
+        document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Atualiza o cronômetro a cada segundo
+    setInterval(updateTimer, 1000);
+</script>

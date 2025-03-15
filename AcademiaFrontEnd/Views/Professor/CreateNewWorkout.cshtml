@@ -1,0 +1,117 @@
+﻿@model WorkoutModel;
+
+@{
+    Layout = "_ClientLayout";
+    var exercicios = ViewBag.Exercicios;
+    var teste = 1;
+}   
+
+<div class="min-h-screen flex flex-col">
+    <div class="relative bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-48">
+        <div class="absolute inset-0 flex items-center justify-center px-6 space-x-4 flex-col">
+            <div class="text-white">
+                <h1 class="text-4xl font-bold">Adicionar treino</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row lg:space-x-6 mt-8 px-6">
+        <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0 p-6 bg-white rounded-lg shadow-md">
+                <form id="workoutForm" asp-action="CreateNewWorkout" method="post" class="space-y-4">
+                    <input type="hidden" name="idusuario" value="@ViewBag.idusuario" />
+
+                    <div>
+                        <label class="font-bold text-gray-700">Nome do treino</label>
+                        <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600" type="text" asp-for="@Model.Nome" />
+                    </div>
+
+                    <div>
+                        <label class="font-bold text-gray-700">Descrição do treino</label>
+                        <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600" asp-for="@Model.Descricao"></textarea>
+                    </div>
+
+                    <div id="additionalInputs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    </div>
+
+                    <div class="mt-4 flex">
+                        <button type="button" onclick="addExercise()" class="ml-auto bg-blue-500 text-white p-2 rounded-lg font-semibold hover:bg-blue-600">
+                            Adicionar Exercício
+                        </button>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button type="submit" class="bg-green-500 text-black p-3 rounded-lg font-semibold hover:bg-green-400">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let exerciseCount = 0;
+    let exercicios = @Html.Raw(Json.Serialize(exercicios));
+
+    function addExercise() {
+        exerciseCount++;
+        const container = document.getElementById('additionalInputs');
+        const newExercise = document.createElement('div');
+
+        let options = exercicios.map(exercicio =>
+            `<option value="${exercicio.id}">${exercicio.nome}</option>`).join('');
+
+        newExercise.innerHTML = `
+            <div class="p-4 border border-gray-300 rounded-lg space-y-4 exercise-container">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-gray-700">Exercício ${exerciseCount}</h3>
+                    <button type="button" onclick="removeExercise(this)" class="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600">Remover</button>
+                </div>
+                <div>
+                    <label class="font-bold text-gray-700">Nome do exercício</label>
+                    <select class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                            name="Exercicios[${exerciseCount - 1}].Nome"
+                            onchange="updateExerciseId(this)">
+                        <option value="">Selecione um exercício</option>
+                        ${options}
+                    </select>
+                </div>
+                <div>
+                    <label class="font-bold text-gray-700">Séries</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                           type="number" name="Exercicios[${exerciseCount - 1}].Sets" />
+                </div>
+                <div>
+                    <label class="font-bold text-gray-700">Repetições</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                           type="number" name="Exercicios[${exerciseCount - 1}].Reps" />
+                </div>
+                <div>
+                    <label class="font-bold text-gray-700">Carga</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                           type="text" name="Exercicios[${exerciseCount - 1}].Carga" />
+                </div>
+                <!-- Campo oculto para o IdExercicio -->
+                <input type="hidden" name="Exercicios[${exerciseCount - 1}].Id" class="exercise-id" />
+            </div>
+        `;
+
+        container.appendChild(newExercise);
+    }
+
+
+    function removeExercise(button) {
+        const exerciseContainer = button.closest('.exercise-container');
+        if (exerciseContainer) {
+            exerciseContainer.remove();
+        }
+    }
+    function updateExerciseId(selectElement) {
+        const exerciseContainer = selectElement.closest('.exercise-container');
+        const hiddenInput = exerciseContainer.querySelector('.exercise-id');
+
+        hiddenInput.value = selectElement.value; // Define o ID do exercício
+    }
+
+
+</script>

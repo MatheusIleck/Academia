@@ -1,0 +1,193 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AcademiaFrontEnd.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AcademiaFrontEnd.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\css\\Profile.css",
+      "PackagePath": "staticwebassets\\css\\Profile.css"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\354-1.png",
+      "PackagePath": "staticwebassets\\imgs\\354-1.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\Logo-Smart-Fit-Png-1024x1024.png",
+      "PackagePath": "staticwebassets\\imgs\\Logo-Smart-Fit-Png-1024x1024.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\about1.jpg",
+      "PackagePath": "staticwebassets\\imgs\\about1.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\banner-concentrado.jpg",
+      "PackagePath": "staticwebassets\\imgs\\banner-concentrado.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\banner-mobile.jpeg",
+      "PackagePath": "staticwebassets\\imgs\\banner-mobile.jpeg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\clipboardicon.png",
+      "PackagePath": "staticwebassets\\imgs\\clipboardicon.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\forca.jpg",
+      "PackagePath": "staticwebassets\\imgs\\forca.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\forca2.jpg",
+      "PackagePath": "staticwebassets\\imgs\\forca2.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\fundo-login.png",
+      "PackagePath": "staticwebassets\\imgs\\fundo-login.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\hipertrofia.jpg",
+      "PackagePath": "staticwebassets\\imgs\\hipertrofia.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\hipertrofia2.jpg",
+      "PackagePath": "staticwebassets\\imgs\\hipertrofia2.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\hipertrofia3.jpg",
+      "PackagePath": "staticwebassets\\imgs\\hipertrofia3.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\logo-dark.svg",
+      "PackagePath": "staticwebassets\\imgs\\logo-dark.svg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\logo.png",
+      "PackagePath": "staticwebassets\\imgs\\logo.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\logobranco.png",
+      "PackagePath": "staticwebassets\\imgs\\logobranco.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\perso.jpg",
+      "PackagePath": "staticwebassets\\imgs\\perso.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\personalinfo.png",
+      "PackagePath": "staticwebassets\\imgs\\personalinfo.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\png_2r56m.png",
+      "PackagePath": "staticwebassets\\imgs\\png_2r56m.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\png_xfsvo.png",
+      "PackagePath": "staticwebassets\\imgs\\png_xfsvo.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\smart-banner.png",
+      "PackagePath": "staticwebassets\\imgs\\smart-banner.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\smart-banner2.png",
+      "PackagePath": "staticwebassets\\imgs\\smart-banner2.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\smart-promo.jpeg",
+      "PackagePath": "staticwebassets\\imgs\\smart-promo.jpeg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\workouticon.png",
+      "PackagePath": "staticwebassets\\imgs\\workouticon.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\workouticon2.png",
+      "PackagePath": "staticwebassets\\imgs\\workouticon2.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\imgs\\workouticon3.png",
+      "PackagePath": "staticwebassets\\imgs\\workouticon3.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaFrontEnd\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AcademiaFrontEnd.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AcademiaFrontEnd.props",
+      "PackagePath": "build\\AcademiaFrontEnd.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AcademiaFrontEnd.props",
+      "PackagePath": "buildMultiTargeting\\AcademiaFrontEnd.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AcademiaFrontEnd.props",
+      "PackagePath": "buildTransitive\\AcademiaFrontEnd.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

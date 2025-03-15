@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+
+@using AcademiaFrontEnd.Request.client
+@model ClientLoginRequest
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('@Url.Content("~/imgs/fundo-login.png")');">
+
+    <div class="grid  lg:grid-cols-2 items-center w-full max-w-6xl mx-auto p-5">
+
+
+        <div class="flex flex-col place-self-center items-center bg-yellow-400 p-10 rounded-3xl shadow-lg w-full max-w-md">
+            <a asp-action="index">
+                <img src="~/imgs/logobranco.png" class="w-20 mb-6" alt="Logo" />
+            </a>
+
+            <form asp-action="Login" method="post" class="w-full flex flex-col space-y-4">
+                <div>
+                    <div class="flex items-center bg-white rounded-xl p-2 shadow-sm">
+                        <i class="fa-solid fa-user text-xl text-gray-600 mx-2"></i>
+                        <input type="email" asp-for="email" placeholder="Email" class="w-full outline-none p-2 " autocomplete="off" required />
+
+                    </div>
+                    <span asp-validation-for="email" class="text-black text-sm "></span>
+
+                </div>
+                <div>
+
+                    <div class="flex items-center bg-white rounded-xl p-2 shadow-sm">
+                        <i class="fa-solid fa-lock text-xl text-gray-600 mx-2"></i>
+                        <input type="password" asp-for="senha" placeholder="Senha" class="w-full outline-none p-2" required />
+                    </div>
+                    <span asp-validation-for="senha" class="text-black text-sm "></span>
+
+                </div>
+
+                <button type="submit" class="w-full bg-white text-black font-bold p-3 rounded-2xl hover:bg-yellow-200 transition">Entrar</button>
+                <a asp-action="Register" class="block text-center text-black hover:text-yellow-600">Criar Nova Conta</a>
+
+            </form>
+        </div>
+
+        <div class="hidden lg:flex flex-col text-center text-white">
+            <h2 class="text-5xl text-black font-bold">Entre na maior rede de</h2>
+            <span class="text-5xl font-bold text-yellow-400 mt-2">Academias da América Latina!</span>
+        </div>
+    </div>
+
+</body>
+</html>

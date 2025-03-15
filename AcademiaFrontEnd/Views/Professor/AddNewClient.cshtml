@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "_ClientLayout";
+    var alunos = Model.Data;
+}
+
+<div class="min-h-screen flex flex-col">
+    <div class="w-full bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-44 relative flex items-center px-6">
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <span class="text-white font-bold text-4xl hover:text-[2.6rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Smart<span class="text-yellow-600">Fit</span>
+            </span>
+        </div>
+        <div class="hidden md:flex space-x-4 ml-auto">
+            <a asp-action="Profile" asp-controller="professor" class="text-white font-bold px-3 py-2 rounded-md hover:text-[1.2rem] transition-all duration-300 ease-in-out cursor-pointer">
+                voltar
+            </a>
+        </div>
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="flex w-full justify-center items-center mb-10 mt-8 px-6 min-h-[60vh]">
+        <div class="flex flex-col w-full sm:w-9/12 md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-4/12 space-y-6">
+            <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                <form asp-action="AddNewClient" method="post" class="space-y-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Nova Solicitação</h2>
+
+                    <!-- Campo de Pesquisa -->
+                    <div class="relative">
+                        <input type="search" id="buscaluno"
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none
+                           focus:ring-2 focus:ring-gray-500 focus:border-gray-500
+                           placeholder:text-gray-500 placeholder:italic transition-all duration-300 ease-in-out"
+                               placeholder="Pesquisar aluno..." />
+                    </div>
+
+                    <!-- Lista de alunos filtrados -->
+                    <ul id="listaAlunos" class="text-left mt-2 bg-gray-100 p-2 rounded-lg max-h-40 overflow-auto hidden">
+                        @foreach (var aluno in alunos)
+                        {
+                            <li class="p-2 cursor-pointer hover:bg-gray-200 rounded flex items-center gap-2"
+                                onclick="selecionarAluno('@aluno.id', '@aluno.Nome', '@aluno.imgperfil')">
+                                <img src="https://localhost:7166/@aluno.imgperfil" alt="@aluno.Nome" class="w-8 h-8 rounded-full object-cover">
+                                @aluno.Nome
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Campo de Nome preenchido automaticamente -->
+                    <div class="flex flex-col items-center gap-3">
+                        <input type="text" id="alunoSelecionado" name="nome"
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+                               placeholder="Nome do aluno" readonly />
+
+                        <!-- Input Hidden para armazenar o ID do aluno -->
+                        <input type="hidden" id="idAlunoSelecionado" name="idAluno">
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="flex justify-between mt-4">
+                        <button type="button" id="cancel-btn"
+                                class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out">
+                            Cancelar
+                        </button>
+                        <button type="submit" id="upload-btn"
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputBusca = document.getElementById("buscaluno");
+        const listaAlunos = document.getElementById("listaAlunos");
+        const itensLista = listaAlunos.getElementsByTagName("li");
+        const campoAlunoSelecionado = document.getElementById("alunoSelecionado");
+        const idAlunoSelecionado = document.getElementById("idAlunoSelecionado");
+
+        // Filtrar alunos conforme a digitação
+        inputBusca.addEventListener("input", function () {
+            let filtro = inputBusca.value.toLowerCase();
+            let temResultado = false;
+
+            if (filtro.length === 0) {
+                listaAlunos.classList.add("hidden");
+                return;
+            }
+
+            for (let i = 0; i < itensLista.length; i++) {
+                let nomeAluno = itensLista[i].textContent.toLowerCase();
+                if (nomeAluno.includes(filtro)) {
+                    itensLista[i].classList.remove("hidden");
+                    temResultado = true;
+                } else {
+                    itensLista[i].classList.add("hidden");
+                }
+            }
+
+            listaAlunos.classList.toggle("hidden", !temResultado);
+        });
+
+        // Selecionar um aluno ao clicar na lista
+        window.selecionarAluno = function (id, nome, imagem) {
+            campoAlunoSelecionado.value = nome;
+            idAlunoSelecionado.value = id; // Atribui o ID do aluno no input hidden
+
+            listaAlunos.classList.add("hidden");
+            inputBusca.value = "";
+        };
+
+        // Esconder a lista quando clicar fora dela
+        document.addEventListener("click", function (event) {
+            if (!inputBusca.contains(event.target) && !listaAlunos.contains(event.target)) {
+                listaAlunos.classList.add("hidden");
+            }
+        });
+    });
+</script>

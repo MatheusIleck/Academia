@@ -1,0 +1,233 @@
+﻿@{
+    Layout = "_ClientLayout";
+
+    var DaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+}
+
+<div class="min-h-screen flex flex-col">
+
+
+    <div class="w-full bg-gradient-to-r from-yellow-400 via-yellow-400 to-yellow-500 h-44 relative flex items-center px-6">
+
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <span class="text-white font-bold text-4xl hover:text-[2.6rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Smart<span class="text-yellow-600">Fit</span>
+            </span>
+        </div>
+
+        <div class="hidden md:flex space-x-4 ml-auto">
+            <a asp-action="Logout" asp-controller="home" class="text-white font-bold px-3 py-2 rounded-md hover:text-[1.2rem] transition-all duration-300 ease-in-out cursor-pointer">
+                Sair
+            </a>
+        </div>
+
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="flex w-full justify-center mb-10 lg:flex-row lg:space-x-6 mt-8 px-6 ">
+
+        <div class="flex flex-col w-full sm:w-9/12  md:w-7/12 lg:w-5/12 xl:w-4/12 2xl:w-4/12 space-y-6">
+
+
+            <div class="bg-white rounded-lg shadow p-6 flex relative items-center">
+                <div class="relative">
+                    <img id="profile-image"
+                         src="https://localhost:7166/@Model.Data.imgperfil"
+                         alt="Profile"
+                         class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg hover:opacity-25">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold mx-4">@Model.Data.Nome</h1>
+                </div>
+                <div>
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+            </div>
+            <div id="upload-modal" class="fixed  inset-0 flex items-center  justify-center bg-black bg-opacity-50 hidden" style="margin-top:0">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <form asp-action="UploadImage" asp-controller="Home" enctype="multipart/form-data" method="post">
+
+                        <h2 class="text-xl font-semibold mb-4">Atualizar Foto de Perfil</h2>
+
+                        <div id="upload-area" class="w-full h-20 relative outline-2 outline-offset-2 outline-dashed place-content-center text-center cursor-pointer">
+                            <input type="file" id="input-file" name="image" class="absolute h-full w-full opacity-0 inset-0 cursor-pointer">
+                            <span class="text-gray-600">Enviar foto</span>
+                        </div>
+
+                        <img id="preview" class="w-32 h-32 object-cover rounded-full border mt-2 hidden justify-self-center" />
+
+                        <button id="change-image" type="button" class="text-blue-500 mt-2 hidden">Remover imagem</button>
+
+                        <div class="flex justify-between mt-4">
+                            <button type="button" id="cancel-btn" class="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
+                            <button type="submit" id="upload-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="flex-1 space-y-6 mt-6 lg:mt-0">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <img src="~/imgs/personalinfo.png" alt="Alternate Text" width="40" height="40" />
+
+                        <h2 class="text-lg font-semibold">Informação Pessoal</h2>
+                    </div>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex gap-1">
+                            <span>Idade:</span>
+                            <span class="font-semibold">@Model.Data.idade years</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Altura:</span>
+                            <span class="font-semibold">@Model.Data.Altura</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>Peso: </span>
+                            <span class="font-semibold">@Model.Data.Peso kg</span>
+                        </li>
+                        <li class="flex gap-1">
+                            <span>IMC: </span>
+                            <span class="font-semibold">@Model.Data.Imc.ToString("f1")</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex content-center items-center gap-2">
+                        <i class="fa-solid fa-bars-progress  text-xl"></i>
+                        <h2 class="text-lg font-semibold">Progresso dos Alunos</h2>
+                    </div>
+                    <div class="mt-4">
+                        <h1>to fazendo essa parte ainda</h1>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 mt-6">
+                    <div class="flex content-center items-center gap-2">
+
+                        <i class="fa-solid fa-clock  text-xl"></i>
+                        <h2 class="text-lg font-semibold">Horarios</h2>
+                    </div>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex justify-between">
+                            <span>Aula de Yoga</span>
+                            <span class="text-gray-500">10:00 AM - 11:00 AM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Treino Funcional</span>
+                            <span class="text-gray-500">05:00 PM - 06:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="bg-white rounded-lg shadow p-6 ">
+                    <div class="flex items-center">
+                        <div class="flex content-center items-center gap-2">
+
+                            <i class="fa-solid fa-user-group  text-xl"></i>
+                            <h2 class="text-lg font-semibold">Alunos</h2>
+                        </div>
+                        <input type="search"
+                               class="p-2 ml-auto border-b border-gray-400 focus:outline-none
+                                 focus:border-black focus:ring-1 focus:ring-gray-500
+                                 placeholder:text-gray-500 placeholder:italic transition-all duration-300 ease-in-out"
+                               id="buscaluno"
+                               placeholder="Pesquisar aluno" />
+
+
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4 mt-4" id="lista-alunos">
+                        @if (Model.Data.alunos.Count > 0)
+                        {
+                            <div class="flex items-center space-x-3">
+                                <div class="flex gap-2">
+                                    @foreach (var aluno in Model.Data.alunos)
+                                    {
+                                        <a asp-controller="Professor"
+                                           asp-action="GetProfileClient"
+                                           asp-route-id="@aluno.id">
+                                            <img src="https://localhost:7166/@aluno.imgperfil"
+                                                 class="w-12 h-12 rounded-full object-cover border-4 border-white shadow-lg cursor-pointer hover:scale-125 transition-transform duration-300"
+                                                 data-nome="@aluno.Nome">
+                                        </a>
+                                    }
+                                  
+                                   
+                                </div>
+                            </div>
+                        }
+                        <div class="content-center">
+                            <a asp-action="AddNewClient">adicionar novo aluno</a>
+                        </div>
+                      
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('buscaluno').addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase(); // Obtém o valor do campo de busca e converte para minúsculas
+        const alunos = document.querySelectorAll('#lista-alunos a'); // Seleciona todos os links dos alunos
+
+        alunos.forEach(aluno => {
+            const nome = aluno.querySelector('img').getAttribute('data-nome').toLowerCase(); // Obtém o nome do aluno
+            if (nome.includes(searchTerm)) {
+                aluno.style.display = 'block'; // Mostra o aluno se o nome corresponder
+            } else {
+                aluno.style.display = 'none'; // Oculta o aluno se o nome não corresponder
+            }
+        });
+    });
+
+    // Abrir o modal quando clicar na imagem
+    document.getElementById("profile-image").addEventListener("click", function () {
+        document.getElementById("upload-modal").classList.remove("hidden");
+    });
+
+    // Fechar o modal quando clicar em "Cancelar"
+    document.getElementById("cancel-btn").addEventListener("click", function () {
+        document.getElementById("upload-modal").classList.add("hidden");
+    });
+
+    // Exibir a imagem selecionada no preview e esconder o input file
+    document.getElementById("input-file").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("preview").src = e.target.result;
+                document.getElementById("preview").classList.remove("hidden");
+                document.getElementById("upload-area").classList.add("hidden"); // Esconder o input file
+                document.getElementById("change-image").classList.remove("hidden"); // Mostrar botão para trocar a imagem
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Permitir trocar a imagem (reexibir input file)
+    document.getElementById("change-image").addEventListener("click", function () {
+        document.getElementById("upload-area").classList.remove("hidden"); // Mostrar input file novamente
+        document.getElementById("preview").classList.add("hidden"); // Esconder prévia da imagem
+        this.classList.add("hidden"); // Esconder botão de troca
+    });
+</script>

@@ -1,0 +1,600 @@
+[
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Endpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndPoints\u003Eb__0_0",
+    "RelativePath": "v1/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "\u003C\u003Ef__AnonymousType0\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Health Check"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.GetProfileEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/profile",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Dto.ClientDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Perfil",
+    "Description": "Acessa o perfil do usuario.",
+    "Summary": "Acessa o perfil do usuario."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.AcceptProfessorRequestEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/profile/acceptrequest",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.AcceptProfessorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.EditprofileEndpoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/profile/edit",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.EditProfileRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Dto.ClientDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Edita o Perfil do cliente.",
+    "Description": "Edita as informa\u00E7\u00F5es de perfil.",
+    "Summary": "Edita as informa\u00E7\u00F5es de perfil."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.GetWorkoutSessionEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/Profile/workoutsessions",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[System.Collections.Generic.List\u00601[[AcademiaBackEnd.Dto.WorkoutSessionDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Acessa o Historico.",
+    "Description": "Retorna o historico do cliente.",
+    "Summary": "Retorna o historico do cliente."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Admin.UpdateImageProfileEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/updateimage",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.GetAllWorkoutsEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/client/workouts",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[System.Collections.Generic.List\u00601[[AcademiaBackEnd.Dto.WorkoutsDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Busca todos os treinos.",
+    "Description": "Busca todos os treinos.",
+    "Summary": "Busca todos os treinos."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Admin.RemoveClientEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/ClientRemove/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.Usuario, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "Client: Remove um cliente.",
+    "Description": "Remove um cliente.",
+    "Summary": "Remove um cliente."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Admin.GetAllClientsEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/Clients",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.Usuario, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "Admin: Busca todos os clientes.",
+    "Description": "Busca todos os clientes.",
+    "Summary": "Busca todos os clientes."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.EndWorkoutEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/finishworkout/",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.EndWorkoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.Usuario, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Finaliza um treino ativo.",
+    "Description": "Finaliza um treino ativo.",
+    "Summary": "Finaliza um treino ativo."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Admin.GetClientByIdEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/getClient/{id}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.Usuario, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "Admin: Busca um cliente.",
+    "Description": "Busca um cliente pelo Id.",
+    "Summary": "Busca um cliente pelo Id."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.LoginEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/Login",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Login"
+    ],
+    "EndpointName": "Login",
+    "Description": "Efetua o Login de um cliente.",
+    "Summary": "Efetua o Login de um cliente."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.AddNewClientEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/AddNewClient",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Professor.AddNewClientRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.ListAllClientsEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/clients",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[System.Collections.Generic.List\u00601[[AcademiaBackEnd.Dto.ClientDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ],
+    "EndpointName": "View Clients",
+    "Summary": "View Clients"
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.GetAllExerciseEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/exercises",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.GetClientProfileEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/findclient/{id}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.GetClientWorkoutEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/GetClientWorkout/{idtreino}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idtreino",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Dto.WorkoutsDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ],
+    "EndpointName": "Busca um treino de um cliente",
+    "Description": "Busca um treino de um cliente",
+    "Summary": "Busca um treino de um cliente"
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.CreateNewWorkoutEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/newWorkout",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "treino",
+        "Type": "AcademiaBackEnd.Request.Professor.CreateNewWorkoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.GetProfessorProfileEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/profile",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Dto.ProfessorDto, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ],
+    "EndpointName": "View Professor Profile",
+    "Description": "Fetch the current user\u0027s profile details.",
+    "Summary": "View Profile"
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.RemoveWorkoutEndpoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/removeworkout",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Professor.RemoveWorkoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Professor.UpdateClientWorkoutEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/professor/updateworkout",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Professor.UpdateClientWorkoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Professor"
+    ]
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Admin.RegisterNewUserEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/RegisterNewClient",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.RegisterNewClientRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.Usuario, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Admin"
+    ],
+    "EndpointName": "Client: Registra um cliente.",
+    "Description": "Registra um novo cliente.",
+    "Summary": "Registra um novo cliente."
+  },
+  {
+    "ContainingType": "AcademiaBackEnd.Endpoints.Clients.StartWorkoutEndPoint",
+    "Method": "HandleAsync",
+    "RelativePath": "v1/workouts/start",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AcademiaBackEnd.Request.Clients.StartWorkoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AcademiaBackEnd.Response.Response\u00601[[AcademiaBackEnd.Data.Models.SessaoTreino, AcademiaBackEnd, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Client"
+    ],
+    "EndpointName": "Inicia um Treino.",
+    "Description": "Inicia um Treino.",
+    "Summary": "Inicia um Treino."
+  }
+]

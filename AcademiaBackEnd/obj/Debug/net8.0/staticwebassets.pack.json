@@ -1,0 +1,81 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Crossover-Polia-Alta.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Crossover-Polia-Alta.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Crucifixo-Inclinado-com-Halteres.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Crucifixo-Inclinado-com-Halteres.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Desenvolvimento-Arnold-Sentado.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Desenvolvimento-Arnold-Sentado.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Elevação-Frontal-com-Anilha.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Elevação-Frontal-com-Anilha.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Elevação-Lateral-com-Halteres.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Elevação-Lateral-com-Halteres.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Peck-Deck.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Peck-Deck.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Triceps-Paralela-Máquina-(Pegada-Neutra).mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Triceps-Paralela-Máquina-(Pegada-Neutra).mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Tríceps-Coice-Unilateral-com-Halteres.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Tríceps-Coice-Unilateral-com-Halteres.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\Tríceps-Corda-Encostado-na-Polia.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\Tríceps-Corda-Encostado-na-Polia.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\exercicios\\supino-barra.mp4",
+      "PackagePath": "staticwebassets\\exercicios\\supino-barra.mp4"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\imgs\\325ddb70-1069-4db6-9470-3fb5e7472360.jpg",
+      "PackagePath": "staticwebassets\\imgs\\325ddb70-1069-4db6-9470-3fb5e7472360.jpg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\imgs\\9520d9a6-942a-4576-9c5a-6ddaec8b043e.png",
+      "PackagePath": "staticwebassets\\imgs\\9520d9a6-942a-4576-9c5a-6ddaec8b043e.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\imgs\\d2ead04a-8e7d-4ff0-9cd9-ba8abe7ba9b8.jpeg",
+      "PackagePath": "staticwebassets\\imgs\\d2ead04a-8e7d-4ff0-9cd9-ba8abe7ba9b8.jpeg"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\imgs\\default.png",
+      "PackagePath": "staticwebassets\\imgs\\default.png"
+    },
+    {
+      "Id": "D:\\vs\\projetos\\AcademiaBackEnd\\AcademiaBackEnd\\wwwroot\\imgs\\f4c2d1ca-b48f-42ad-96c3-60f0ab7bb273_john.jpeg",
+      "PackagePath": "staticwebassets\\imgs\\f4c2d1ca-b48f-42ad-96c3-60f0ab7bb273_john.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AcademiaBackEnd.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AcademiaBackEnd.props",
+      "PackagePath": "build\\AcademiaBackEnd.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AcademiaBackEnd.props",
+      "PackagePath": "buildMultiTargeting\\AcademiaBackEnd.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AcademiaBackEnd.props",
+      "PackagePath": "buildTransitive\\AcademiaBackEnd.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
